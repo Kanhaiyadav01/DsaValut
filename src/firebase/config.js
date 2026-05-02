@@ -19,7 +19,7 @@ if (!hasFirebaseConfig) {
   console.warn("Firebase config is missing. UI will render without Firebase.")
 }
 
-console.log("Firebase connected:" , app.name);
+
 
 
 export const auth = app ? getAuth(app) : null

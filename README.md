@@ -1,16 +1,140 @@
-# React + Vite
+# NeuroDSA 🧠
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Never forget a DSA problem again.
 
-Currently, two official plugins are available:
+A spaced repetition tracker built for competitive programmers. Automatically schedules revision intervals so every problem you solve actually sticks.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Live Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+[neurodsa.web.app](https://neurodsa.web.app) ← update after deploy
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+| Layer | Tech |
+|---|---|
+| Frontend | React 18 + Vite |
+| Styling | Tailwind CSS |
+| Auth | Firebase Auth (Email + Google) |
+| Database | Firebase Firestore |
+| Hosting | Firebase Hosting |
+| Icons | Lucide React |
+
+---
+
+## Features
+
+- Email + Google authentication
+- Auto-scheduled revision intervals — +3, +7, +15, +25, +37, +120 days
+- Today's dashboard — see exactly what to revise
+- Mark done or missed — intervals adjust automatically
+- Filter by topic, difficulty, status
+- Stats page — mastery %, topic breakdown, difficulty breakdown
+- Browser notifications for morning reminders
+- Cloud sync — data follows you across devices
+- Fully responsive — sidebar on desktop, bottom nav on mobile
+
+---
+
+## Folder Structure
+
+```
+src/
+├── firebase/
+│   └── config.js          # Firebase setup
+├── context/
+│   └── AuthContext.jsx     # Global auth state
+├── pages/
+│   ├── Landing.jsx         # Landing page
+│   ├── Login.jsx           # Login page
+│   ├── Signup.jsx          # Signup page
+│   └── Dashboard.jsx       # Main app shell
+├── components/
+│   ├── ProtectedRoute.jsx  # Route guard
+│   └── Dashboard/
+│       ├── Navbar.jsx
+│       ├── Sidebar.jsx
+│       ├── BottomNav.jsx
+│       ├── QuestionCard.jsx
+│       ├── TodayView.jsx
+│       ├── AllQuestions.jsx
+│       ├── AddQuestion.jsx
+│       └── StatsView.jsx
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+---
+
+## Local Setup
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/yourusername/neurodsa.git
+
+# 2. Go into folder
+cd neurodsa
+
+# 3. Install dependencies
+npm install
+
+# 4. Create .env file
+cp .env.example .env
+# Fill in your Firebase keys
+
+# 5. Run dev server
+npm run dev
+```
+
+---
+
+## Environment Variables
+
+Create a `.env` file in root:
+
+```
+VITE_FIREBASE_API_KEY=your_key
+VITE_FIREBASE_AUTH_DOMAIN=your_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
+
+> Never commit `.env` to GitHub. It is in `.gitignore`.
+
+---
+
+## Spaced Repetition Intervals
+
+| Stage | Days After Previous |
+|---|---|
+| 1st revision | +3 days |
+| 2nd revision | +7 days |
+| 3rd revision | +15 days |
+| 4th revision | +25 days |
+| 5th revision | +37 days |
+| Final revision | +120 days |
+
+After all 6 stages — problem is marked **Mastered**. 
+
+---
+
+## Deployment
+
+Deployed on Firebase Hosting.
+
+```bash
+npm run build
+firebase deploy
+```
+
+---
+
+## Author
+
+Built with ♥ 
