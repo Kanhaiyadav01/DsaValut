@@ -8,7 +8,7 @@ A spaced repetition tracker built for competitive programmers. Automatically sch
 
 ## Live Demo
 
-[neurodsa.web.app](https://dsavault-bc0a8.web.app/) ← update after deploy
+[neurodsa.web.app](https://neurodsa.vercel.app)
 
 ---
 
